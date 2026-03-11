@@ -17,7 +17,7 @@ def students_in_course_by_lecturer(db: Session, course_code, lecturer_id):
 
 def final_year_top_students(db: Session):
 
-    return db.query(
+    results = db.query(
         models.Student.Student_ID,
         models.Student.First_Name,
         func.avg(models.GradeRecord.Grade).label("avg_grade")
@@ -37,6 +37,15 @@ def final_year_top_students(db: Session):
     ).having(
         func.avg(models.GradeRecord.Grade) > 70
     ).all()
+
+    return [
+        {
+            "Student_ID": r.Student_ID,
+            "First_Name": r.First_Name,
+            "avg_grade": float(r.avg_grade)
+        }
+        for r in results
+    ]
 
 def students_without_courses(db: Session, semester):
 

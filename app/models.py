@@ -73,6 +73,8 @@ class Assignment(Base):
     __tablename__ = "Assignments"
 
     Assignment_ID = Column(Integer, primary_key=True)
+    Assignment_Name = Column(String(150))
+    Assignment_Description = Column(String(250))
     Course_Offering_ID = Column(Integer, ForeignKey("Course_Offerings.Course_Offering_ID"))
 
 class GradeRecord(Base):
