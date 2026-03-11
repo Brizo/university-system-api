@@ -1,6 +1,6 @@
 # FastAPI University Records Management API
 
-A backend university system as part of .
+A backend university system as part of Databases and Information Systems End of Module group assignment.
 
 ## Features
 
@@ -10,7 +10,7 @@ A backend university system as part of .
 * Delete todos
 * Interactive API documentation
 
-## 🛠 Tech Stack
+## Tech Stack
 
 * Python 3.14+
 * FastAPI
@@ -21,8 +21,8 @@ A backend university system as part of .
 Clone the repository:
 
 ```bash
-git clone https://github.com/example/fastapi-todo-api.git
-cd fastapi-todo-api
+git clone https://github.com/Brizo/university-system-api.git
+cd university-system-api
 ```
 
 Install dependencies:
@@ -61,51 +61,7 @@ ReDoc:
 http://127.0.0.1:8000/redoc
 ```
 
-## Example Endpoints
-
-| Method | Endpoint    | Description   |
-| ------ | ----------- | ------------- |
-| GET    | /todos      | Get all todos |
-| POST   | /todos      | Create a todo |
-| PUT    | /todos/{id} | Update a todo |
-| DELETE | /todos/{id} | Delete a todo |
-
-## Project Structure
-
-```
-fastapi-todo-api/
-│
-├── main.py
-├── models.py
-├── schemas.py
-├── database.py
-├── requirements.txt
-└── README.md
-```
-
-## Example Request
-
-Create a todo:
-
-```json
-POST /todos
-{
-  "title": "Finish FastAPI project",
-  "completed": false
-}
-```
-
-Response:
-
-```json
-{
-  "id": 1,
-  "title": "Finish FastAPI project",
-  "completed": false
-}
-```
-
-## 🧪 Testing
+## Testing
 
 Run tests with:
 
@@ -113,6 +69,6 @@ Run tests with:
 pytest
 ```
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License.
