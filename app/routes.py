@@ -23,7 +23,7 @@ def root():
 
 # crud
 @router.get("/students")
-def get_students(int, db: Session = Depends(get_db)):
+def get_students(db: Session = Depends(get_db)):
     return crud.get_students(db)
 
 @router.get("/courses")
