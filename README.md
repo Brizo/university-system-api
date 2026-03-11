@@ -4,11 +4,13 @@ A backend university system as part of Databases and Information Systems End of 
 
 ## Features
 
-* Create todos
-* View all todos
-* Update todos
-* Delete todos
-* Interactive API documentation
+* View students, departments, courses,
+* Filter students by course, lecturer
+* Get final year top students
+* Retrieve students without courses
+* Get student advisor contacts
+* Filter lecturers with most projects
+* Filter staff by department
 
 ## Tech Stack
 
@@ -60,6 +62,14 @@ ReDoc:
 ```
 http://127.0.0.1:8000/redoc
 ```
+## Sample Calls
+
+1) Retrieve students
+
+``` bash
+/api/students
+```
+
 
 ## Testing
 
