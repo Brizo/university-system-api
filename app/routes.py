@@ -42,6 +42,10 @@ def get_courses(db: Session = Depends(get_db)):
 def get_departments(db: Session = Depends(get_db)):
     return crud.get_departments(db)
 
+@router.get("/programms")
+def get_programms(db: Session = Depends(get_db)):
+    return crud.get_programms(db)
+
 # queries
 @router.get("/students/course/{course_code}/lecturer/{lecturer_id}")
 def students_in_course(course_code: int, lecturer_id: int, db: Session = Depends(get_db)):

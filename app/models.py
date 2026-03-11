@@ -15,6 +15,12 @@ class Programme(Base):
 
     Programme_ID = Column(Integer, primary_key=True)
     Programme_Name = Column(String(150))
+    Degree_Awarded_Name = Column(String(150))
+    Degree_Awarded_Level = Column(Integer)
+    Enrolment_Deadline = Column(Date)
+    Tuition_Fees = Column(Integer)
+    Course_Requirements = Column(String(250))
+    Duration_Months = Column(Integer)
 
 class Student(Base):
     __tablename__ = "Students"

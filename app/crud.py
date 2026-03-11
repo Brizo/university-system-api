@@ -12,3 +12,6 @@ def get_courses(db: Session):
 
 def get_departments(db: Session):
     return db.query(models.Department).all()
+
+def get_programms(db: Session):
+    return db.query(models.Programme).all()
