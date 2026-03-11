@@ -60,7 +60,7 @@ def students_without_courses(db: Session, semester):
 
 def advisor_contact(db: Session, student_id):
 
-    return db.query(
+    result = db.query(
         models.Lecturer.First_Name,
         models.Lecturer.Last_Name,
         models.LecturerContact.Email,
@@ -75,6 +75,14 @@ def advisor_contact(db: Session, student_id):
         models.AdvisorPair.Student_ID == student_id
     ).first()
 
+    if result:
+        return {
+            "first_name": result.First_Name,
+            "last_name": result.Last_Name,
+            "email": result.Email,
+            "phone": result.Phone
+        }
+
 def courses_by_department(db: Session, department_id):
 
     return db.query(models.CourseDetails).filter(
@@ -83,7 +91,7 @@ def courses_by_department(db: Session, department_id):
 
 def lecturers_with_most_projects(db: Session):
 
-    return db.query(
+    results = db.query(
         models.Lecturer.Lecturer_ID,
         func.count(models.ResearchProject.Project_ID).label("projects")
     ).join(
@@ -94,6 +102,14 @@ def lecturers_with_most_projects(db: Session):
     ).order_by(
         func.count(models.ResearchProject.Project_ID).desc()
     ).all()
+
+    return [
+        {
+            "Lecturer_ID": r.Lecturer_ID,
+            "Projects": r.projects,
+        }
+        for r in results
+    ]
 
 def lecturer_publications_last_year(db: Session):
 

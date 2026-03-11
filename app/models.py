@@ -47,7 +47,10 @@ class CourseDetails(Base):
 
     Course_Code = Column(Integer, primary_key=True)
     Course_Name = Column(String(150))
+    Course_Description = Column(String(250))
     Department_ID = Column(Integer, ForeignKey("Departments.Department_ID"))
+    Course_Level = Column(Integer)
+    Credits = Column(Integer)
 
 class CourseOffering(Base):
     __tablename__ = "Course_Offerings"
@@ -109,11 +112,16 @@ class Staff(Base):
     Last_Name = Column(String(150))
     Date_of_Birth = Column(Date)
     Department_ID = Column(Integer)
+    Employment_Type = Column(Integer)
 
 class ResearchProject(Base):
     __tablename__ = "Research_Projects"
 
     Project_ID = Column(Integer, primary_key=True)
+    Project_Name = Column(String(150))
+    Project_Description = Column(String(250))
+    Funding_Sources = Column(String(250))
+    Outcome = Column(Integer)
     Supervisor_ID = Column(Integer, ForeignKey("Lecturers.Lecturer_ID"))
 
 class Publication(Base):
@@ -121,4 +129,6 @@ class Publication(Base):
 
     Publication_ID = Column(Integer, primary_key=True)
     Publication_Name = Column(String(150))
+    Journal_Name = Column(String(250))
     Date_of_Publication = Column(Date)
+    Expertise_ID = Column(Integer, ForeignKey("Areas_of_Expertise.Expertise_ID"))
