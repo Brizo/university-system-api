@@ -24,8 +24,8 @@ DATABASE_URL = URL.create(
 
 engine = create_engine(
     DATABASE_URL,
-    echo=False,          # Set True if you want SQL queries printed
-    pool_pre_ping=True   # Helps prevent dropped connection errors
+    echo=False,         
+    pool_pre_ping=True
 )
 
 SessionLocal = sessionmaker(

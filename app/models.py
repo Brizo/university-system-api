@@ -28,7 +28,9 @@ class Student(Base):
     Student_ID = Column(Integer, primary_key=True)
     First_Name = Column(String(150))
     Last_Name = Column(String(150))
+    Date_of_Birth = Column(Date)
     Year_of_Study = Column(Integer)
+    Graduation_Status = Column(String(150))
     Programme_ID = Column(Integer, ForeignKey("Programmes.Programme_ID"))
 
 class Lecturer(Base):
@@ -37,6 +39,7 @@ class Lecturer(Base):
     Lecturer_ID = Column(Integer, primary_key=True)
     First_Name = Column(String(150))
     Last_Name = Column(String(150))
+    Date_of_Birth = Column(Date)
     Department_ID = Column(Integer, ForeignKey("Departments.Department_ID"))
 
 class CourseDetails(Base):
@@ -53,13 +56,18 @@ class CourseOffering(Base):
     Course_Code = Column(Integer, ForeignKey("Course_Details.Course_Code"))
     Lecturer_ID = Column(Integer, ForeignKey("Lecturers.Lecturer_ID"))
     Semester_Code = Column(String(10))
-
+    Capacity = Column(Integer)
+    Start_Date = Column(Date)
+    End_Date = Column(Date)
+    Programme_ID = Column(Integer, ForeignKey("Programme.Programme_ID"))
+    
 class CourseEnrolment(Base):
     __tablename__ = "Course_Enrolment"
 
     Enrolment_ID = Column(Integer, primary_key=True)
     Student_ID = Column(Integer, ForeignKey("Students.Student_ID"))
     Course_Offering_ID = Column(Integer, ForeignKey("Course_Offerings.Course_Offering_ID"))
+    Enrolment_Date = Column(Date)
 
 class Assignment(Base):
     __tablename__ = "Assignments"
@@ -87,6 +95,9 @@ class LecturerContact(Base):
     Lecturer_ID = Column(Integer, primary_key=True)
     Email = Column(String(254))
     Phone = Column(String(50))
+    Emergency_Contact_Name = Column(String(150))
+    Emergency_Contact_Email = Column(String(254))
+    Emergency_Contact_Phone = Column(String(50))
 
 class Staff(Base):
     __tablename__ = "Non_Academic_Staff"
@@ -94,6 +105,7 @@ class Staff(Base):
     Staff_ID = Column(Integer, primary_key=True)
     First_Name = Column(String(150))
     Last_Name = Column(String(150))
+    Date_of_Birth = Column(Date)
     Department_ID = Column(Integer)
 
 class ResearchProject(Base):

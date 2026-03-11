@@ -1,6 +1,7 @@
 # FastAPI University Records Management API
 
-A backend university system as part of Databases and Information Systems End of Module group assignment.
+University Of Liverpool - Databases and Information Systems (CSK542) End of Module Assignment
+Backend (API) code for University Records Management systeem.
 
 ## Features
 
